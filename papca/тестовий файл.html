@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт з використанням JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .content {
+            padding: 20px;
+        }
+        .toy {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .toy-item {
+            margin: 10px;
+            max-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .toy-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .toy-item p {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Сайт з використанням JavaScript</h1>
+    </header>
+    <div class="container">
+        <div class="content">
+            <h2>Наші іграшки</h2>
+            <div class="toy" id="toy-gallery">
+                <!-- Додаємо іграшки за допомогою JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Дані про іграшки
+        const toys = [
+            { name: "Іграшка 1", image: "toy1.jpg", description: "Опис іграшки 1" },
+            { name: "Іграшка 2", image: "toy2.jpg", description: "Опис іграшки 2" },
+            { name: "Іграшка 3", image: "toy3.jpg", description: "Опис іграшки 3" },
+            // Додайте більше іграшок тут
+        ];
+
+        // Функція для створення HTML для кожної іграшки
+        function renderToys() {
+            const gallery = document.getElementById("toy-gallery");
+            toys.forEach(toy => {
+                const item = document.createElement("div");
+                item.classList.add("toy-item");
+                item.innerHTML = `
+                    <img src="${toy.image}" alt="${toy.name}">
+                    <p>${toy.description}</p>
+                `;
+                gallery.appendChild(item);
+            });
+        }
+
+        // Викликаємо функцію для відображення іграшок при завантаженні сторінки
+        renderToys();
+    </script>
+</body>
+</html>
